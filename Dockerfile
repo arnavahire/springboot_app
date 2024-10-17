@@ -7,6 +7,10 @@ WORKDIR /app
 # Copy the built JAR file from the target directory to the container
 COPY target/helloworld-0.0.1-SNAPSHOT.jar app.jar
 
+# Set JAVA_HOME environment variable
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
 # Expose port 8080 (default port for Spring Boot)
 EXPOSE 8080
 
