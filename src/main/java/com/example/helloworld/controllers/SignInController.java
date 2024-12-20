@@ -27,7 +27,6 @@ public class SignInController {
         User user = userRepository.findByEmail(email);
         if (user != null && user.getPassword().equals(password)) {
             // You can return a JWT token or user data
-            System.out.println(user);
             return ResponseEntity.ok(user);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
